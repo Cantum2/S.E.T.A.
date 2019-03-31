@@ -46,13 +46,6 @@ class Indicators:
         if Indicators.compare_date(sma_threshold, date):
             date_wanted = datetime.datetime.strptime(date, '%m/%d/%Y')
             iteration_start_date = date_wanted - datetime.timedelta(days=sma_amount + 1)
-            # get line number of starting date
-            #for i in range(1, len(self.dataset.index)):
-            #    current_iter_date = datetime.datetime.strptime(self.dataset['Date'].iloc[i], '%m/%d/%Y')
-             #   if current_iter_date == iteration_start_date:
-            #        loop_start = i
-             #       break
-
             format_start_date = iteration_start_date.strftime("%m/%d/%Y")
             print(format_start_date)
             loop_start = self.dataset[self.dataset["Date"] == format_start_date].index[0]
@@ -90,3 +83,23 @@ class Indicators:
         ema_12 = Indicators.get_ema(self, date, 12)
         macd = ema_12 - ema_26
         print("MACD:",macd)
+        return macd
+
+    def get_macd_signal(self, date):
+        path = "../data_set/UGAZ_STOCK.CSV"
+        df = pandas.read_csv(path, parse_dates=['Date'], index_col=['Date']).head(100)
+        df = df.sort_index()
+        #change to work with all data
+        # len(df.index) + 1
+
+        for i in range(26, 101):
+            #get date
+            date = self.dataset['Date'].iloc[i]
+            print("Date",date)
+            self.dataset.loc[i, 'Macd'] = Indicators.get_macd(self, date)
+
+        print(self.dataset)
+        self.dataset['macd_strike'] = self.dataset['Macd'].ewm(span=9, min_periods=0, adjust=False, ignore_na=False).mean()
+        index = self.dataset.loc[self.dataset["Date"] == date].index[0] - 1
+        print("MACD Strike:", df['macd_strike'].tail())
+        #return df['backward_ewm'].iloc[index]

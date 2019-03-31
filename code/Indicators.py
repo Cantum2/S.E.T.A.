@@ -16,7 +16,7 @@ class Indicators:
             is desired sma amount
         :return:
         """
-        print(date2)
+
         new_date = datetime.datetime.strptime(date2, '%m/%d/%Y')
         if date1 < new_date:
             return True
@@ -46,23 +46,24 @@ class Indicators:
         if Indicators.compare_date(sma_threshold, date):
             date_wanted = datetime.datetime.strptime(date, '%m/%d/%Y')
             iteration_start_date = date_wanted - datetime.timedelta(days=sma_amount + 1)
-            print(iteration_start_date)
             # get line number of starting date
-            for i in range(1, len(self.dataset.index)):
-                current_iter_date = datetime.datetime.strptime(self.dataset['Date'].iloc[i], '%m/%d/%Y')
-                if current_iter_date == iteration_start_date:
-                    loop_start = i
-                    break
+            #for i in range(1, len(self.dataset.index)):
+            #    current_iter_date = datetime.datetime.strptime(self.dataset['Date'].iloc[i], '%m/%d/%Y')
+             #   if current_iter_date == iteration_start_date:
+            #        loop_start = i
+             #       break
 
-            print(loop_start)
+            format_start_date = iteration_start_date.strftime("%m/%d/%Y")
+            print(format_start_date)
+            loop_start = self.dataset[self.dataset["Date"] == format_start_date].index[0]
+
             # sma calculation on close price
             for i in range(loop_start, loop_start + sma_amount):
-                print(self.dataset['Close'].iloc[i])
                 sma += float(self.dataset['Close'].iloc[i])
         else:
             print("Error")
 
-        print(sma / sma_amount)
+        print("SMA:",sma / sma_amount)
         return sma / sma_amount
 
     #Have to reread data to organize for ema
@@ -81,5 +82,11 @@ class Indicators:
         df = df.sort_index()
         df['ewm'] = df['Close'].ewm(span=ema_time_period, min_periods=0, adjust=False, ignore_na=False).mean()
         index = self.dataset.loc[self.dataset["Date"] == date].index[0] - 1
-
+        print("EMA:",df['backward_ewm'].iloc[index])
         return df['backward_ewm'].iloc[index]
+
+    def get_macd(self, date):
+        ema_26 = Indicators.get_ema(self, date, 26)
+        ema_12 = Indicators.get_ema(self, date, 12)
+        macd = ema_12 - ema_26
+        print("MACD:",macd)

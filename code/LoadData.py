@@ -20,6 +20,6 @@ names = ['Date','Open','High','Low','Close','Adj Close']
 dataset = pandas.read_csv(path, names=names)
 
 indicators = Indicators(dataset)
-indicators.get_sma("3/29/2012", 9)
-indicators.get_ema("11/7/2018", 20)
-
+indicators.get_sma("11/23/2018", 9)
+indicators.get_ema("11/23/2018", 20)
+indicators.get_macd("11/23/2018")

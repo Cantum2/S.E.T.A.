@@ -12,21 +12,12 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from Indicators import Indicators
 
 #import data
 path = "../data_set/UGAZ_STOCK.CSV"
 names = ['Date','Open','High','Low','Close','Adj Close']
 dataset = pandas.read_csv(path, names=names)
-print(dataset.describe())
 
-#Calculate SMA
-def getSMA(date, smaAmount):
-    """
-
-    :param date:
-        get simple moving average for a given data
-    :param smaAmount:
-        be able to get various amounts of sma
-    :return:
-    """
-
+indicators = Indicators(dataset)
+indicators.get_sma("3/29/2012", 9)

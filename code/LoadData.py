@@ -21,3 +21,5 @@ dataset = pandas.read_csv(path, names=names)
 
 indicators = Indicators(dataset)
 indicators.get_sma("3/29/2012", 9)
+indicators.get_ema("11/7/2018", 20)
+

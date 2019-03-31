@@ -1,5 +1,6 @@
 import time
 import datetime
+import pandas
 
 
 class Indicators:
@@ -63,3 +64,22 @@ class Indicators:
 
         print(sma / sma_amount)
         return sma / sma_amount
+
+    #Have to reread data to organize for ema
+    def get_ema(self, date, ema_time_period):
+        """
+        :param date:
+            date for specific day
+        :param ema_time_period:
+            20, 26, 12
+        :return:
+            ema for the input date
+        """
+        path = "../data_set/UGAZ_STOCK.CSV"
+        df = pandas.read_csv(path, parse_dates=['Date'], index_col=['Date'])
+        df['backward_ewm'] = df['Close'].ewm(span=ema_time_period, min_periods=0, adjust=False, ignore_na=False).mean()
+        df = df.sort_index()
+        df['ewm'] = df['Close'].ewm(span=ema_time_period, min_periods=0, adjust=False, ignore_na=False).mean()
+        index = self.dataset.loc[self.dataset["Date"] == date].index[0] - 1
+
+        return df['backward_ewm'].iloc[index]

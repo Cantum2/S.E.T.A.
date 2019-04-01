@@ -41,7 +41,6 @@ class Indicators:
         date_after_sma = datetime.datetime.strptime(first_date, '%m/%d/%Y')
         sma_threshold = date_after_sma + datetime.timedelta(days=sma_amount)
         sma = 0
-        loop_start = 0
 
         if Indicators.compare_date(sma_threshold, date):
             date_wanted = datetime.datetime.strptime(date, '%m/%d/%Y')
@@ -81,7 +80,7 @@ class Indicators:
     def get_macd(self, date):
         """
         :param date:
-            date in format m/d/yyyy to get macd for
+            date in format m/d/yyyy
         :return:
             macd for specified date
         """
@@ -94,21 +93,30 @@ class Indicators:
     def get_macd_signal(self, date):
         """
         :param date:
-             date in format m/d/yyyy to get macd for
+             date in format m/d/yyyy
         :return:
             macd signal line for a specific date
         """
-        path = "../data_set/UGAZ_STOCK.CSV"
-        df = pandas.read_csv(path, parse_dates=['Date'], index_col=['Date']).head(100)
-        df = df.sort_index()
-        #change to work with all data
-        # len(df.index) + 1
+        index = self.dataset.loc[self.dataset["Date"] == date].index[0] + 1
+        #data is currently limited for time constraints
+        for i in range(26, index):
+            iteration_date = self.dataset['Date'].iloc[i]
+            print("Date", iteration_date)
+            self.dataset.loc[i, 'Macd'] = Indicators.get_macd(self, iteration_date)
 
-        for i in range(26, 500):
-            date = self.dataset['Date'].iloc[i]
-            print("Date", date)
-            self.dataset.loc[i, 'Macd'] = Indicators.get_macd(self, date)
-
-        #print(self.dataset)
         self.dataset['macd_strike'] = self.dataset['Macd'].ewm(span=9, min_periods=0, adjust=False, ignore_na=False).mean()
-        print(self.dataset.iloc[26:500,:])
+        print("Macd Strike: ",self.dataset['macd_strike'].iloc[index])
+        return self.dataset['macd_strike'].iloc[index]
+
+    def get_macd_hist(self, date):
+        """
+        :param date:
+            date in format m/d/yyyy
+        :return:
+        """
+        macd = Indicators.get_macd(self, date)
+        macd_signal = Indicators.get_macd_signal(self, date)
+
+        macd_hist = macd - macd_signal
+        print("Macd_hist: ",macd_hist)
+        return macd_hist

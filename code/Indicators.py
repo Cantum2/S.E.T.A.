@@ -122,13 +122,22 @@ class Indicators:
             rsi value for a wanted date
         """
         index = self.dataset[self.dataset["Date"] == date].index[0]
+        print(self.dataset)
+        print(index)
+        delta = self.dataset['Adj Close'].diff()
+        dUp, dDown = delta.copy(), delta.copy()
+        dUp[dUp < 0] = 0
+        dDown[dDown > 0] = 0
 
-        self.dataset["Delta"] = self.dataset['Close'].diff()
-        dUp = self.dataset.loc[self.dataset['Delta'] > 0]
-        dUp['RUp'] = dUp['Delta'].rolling(14).mean()
+        RolUp = dUp.ewm(span = 14).mean()
+        RolDown = dDown.ewm(span = 14).mean().abs()
 
-        dDown = self.dataset.loc[self.dataset['Delta'] < 0]
-        dDown['RDown'] = dDown['Delta'].rolling(14).mean().abs()
+        RS = RolUp / RolDown
+        print("RS", RS)
+        RSI = 100.0 - (100.0 / (1.0+RS))
+        print("RSI:",RSI)
+        return RSI
+
 
 
 

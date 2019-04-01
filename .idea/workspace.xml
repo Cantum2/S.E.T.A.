@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5adf725b-5c22-415f-b770-1ed8a641850d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Indicators.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Indicators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/LoadData.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/LoadData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/Indicators.py___jb_tmp___" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="843">
+              <first_editor relative-caret-position="943">
                 <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               </first_editor>
               <second_editor />
@@ -39,8 +40,8 @@
       <file leaf-file-name="LoadData.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/LoadData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="44" />
+            <state relative-caret-position="436">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
               <folding>
                 <element signature="e#13#26#0" expanded="true" />
               </folding>
@@ -51,8 +52,8 @@
       <file leaf-file-name="Indicators.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/Indicators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="71" column="75" lean-forward="true" selection-start-line="71" selection-start-column="75" selection-end-line="71" selection-end-column="75" />
+            <state relative-caret-position="791">
+              <caret line="113" column="38" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -86,9 +87,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="920" />
-    <option name="y" value="-36" />
-    <option name="width" value="2843" />
+    <option name="x" value="919" />
+    <option name="y" value="-37" />
+    <option name="width" value="2844" />
     <option name="height" value="1495" />
   </component>
   <component name="ProjectView">
@@ -267,6 +268,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code/LoadData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="44" />
+          <folding>
+            <element signature="e#13#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/Indicators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2829">
+          <caret line="71" column="43" lean-forward="true" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="943">
+            <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/Indicators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2747">
@@ -349,7 +387,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="843">
+          <first_editor relative-caret-position="943">
             <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
           </first_editor>
           <second_editor />
@@ -373,8 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/LoadData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="44" />
+        <state relative-caret-position="436">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding>
             <element signature="e#13#26#0" expanded="true" />
           </folding>
@@ -383,8 +421,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/Indicators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="71" column="75" lean-forward="true" selection-start-line="71" selection-start-column="75" selection-end-line="71" selection-end-column="75" />
+        <state relative-caret-position="791">
+          <caret line="113" column="38" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

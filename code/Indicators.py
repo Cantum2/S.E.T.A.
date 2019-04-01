@@ -79,6 +79,12 @@ class Indicators:
         return df['backward_ewm'].iloc[index]
 
     def get_macd(self, date):
+        """
+        :param date:
+            date in format m/d/yyyy to get macd for
+        :return:
+            macd for specified date
+        """
         ema_26 = Indicators.get_ema(self, date, 26)
         ema_12 = Indicators.get_ema(self, date, 12)
         macd = ema_12 - ema_26
@@ -86,20 +92,23 @@ class Indicators:
         return macd
 
     def get_macd_signal(self, date):
+        """
+        :param date:
+             date in format m/d/yyyy to get macd for
+        :return:
+            macd signal line for a specific date
+        """
         path = "../data_set/UGAZ_STOCK.CSV"
         df = pandas.read_csv(path, parse_dates=['Date'], index_col=['Date']).head(100)
         df = df.sort_index()
         #change to work with all data
         # len(df.index) + 1
 
-        for i in range(26, 101):
-            #get date
+        for i in range(26, 500):
             date = self.dataset['Date'].iloc[i]
-            print("Date",date)
+            print("Date", date)
             self.dataset.loc[i, 'Macd'] = Indicators.get_macd(self, date)
 
-        print(self.dataset)
+        #print(self.dataset)
         self.dataset['macd_strike'] = self.dataset['Macd'].ewm(span=9, min_periods=0, adjust=False, ignore_na=False).mean()
-        index = self.dataset.loc[self.dataset["Date"] == date].index[0] - 1
-        print("MACD Strike:", df['macd_strike'].tail())
-        #return df['backward_ewm'].iloc[index]
+        print(self.dataset.iloc[26:500,:])

@@ -1,6 +1,7 @@
 import time
 import datetime
 import pandas
+import numpy
 pandas.options.mode.chained_assignment = None  # default='warn'
 
 
@@ -138,6 +139,19 @@ class Indicators:
         print("RSI:",RSI)
         return RSI
 
+    def get_elo(self, date):
+        RSI = Indicators.get_rsi(self, date)
+        MacD_Hist = Indicators.get_macd_hist(self, date)
+        Boll_Bot = Indicators.get_bollinger_bot(self, date)
+        index = self.dataset[self.dataset['Date'] == date].index[0]
+        current_price = self.dataset['Close'].iloc[index]
+        rsi_macD = RSI * MacD_Hist
+        normalized_num = (rsi_macD + 1) / 2
+        norm_prob = 1 - normalized_num
+        BollB_Calc = current_price / Boll_Bot - 1
+        elo_score = numpy.log(norm_prob / BollB_Calc)
+        print(elo_score)
+        return elo_score
 
 
 

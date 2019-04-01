@@ -1,6 +1,7 @@
 import time
 import datetime
 import pandas
+pandas.options.mode.chained_assignment = None  # default='warn'
 
 
 class Indicators:
@@ -112,3 +113,26 @@ class Indicators:
         boll_bot = twenty_sma - (self.dataset["Stdev"].iloc[index] * 2)
         print(boll_bot)
         return boll_bot
+
+    def get_rsi(self, date):
+        """
+        :param date:
+         date in format m/d/yyyy
+        :return:
+            rsi value for a wanted date
+        """
+        index = self.dataset[self.dataset["Date"] == date].index[0]
+
+        self.dataset["Delta"] = self.dataset['Close'].diff()
+        dUp = self.dataset.loc[self.dataset['Delta'] > 0]
+        dUp['RUp'] = dUp['Delta'].rolling(14).mean()
+
+        dDown = self.dataset.loc[self.dataset['Delta'] < 0]
+        dDown['RDown'] = dDown['Delta'].rolling(14).mean().abs()
+
+
+
+
+
+
+

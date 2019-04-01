@@ -17,11 +17,13 @@ from Indicators import Indicators
 #import data
 path = "../data_set/UGAZ_STOCK.CSV"
 names = ['Date','Open','High','Low','Close','Adj Close']
-dataset = pandas.read_csv(path, names=names)
-
+dataset = pandas.read_csv(path)
+print(dataset)
 indicators = Indicators(dataset)
-indicators.get_sma("11/23/2018", 9)
+indicators.get_sma("1/31/2013", 9)
 indicators.get_ema("1/31/2013", 20)
 #indicators.get_macd("1/31/2013")
-indicators.get_macd_signal("1/31/2013")
-indicators.get_macd_hist("1/31/2013")
+#indicators.get_macd_signal("1/31/2013")
+#indicators.get_macd_hist("1/31/2013")
+indicators.get_bollinger_top("1/31/2013")
+indicators.get_bollinger_bot("1/31/2013")

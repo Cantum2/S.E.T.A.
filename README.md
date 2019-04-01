@@ -18,7 +18,7 @@ Their are thousands of wonderful tools in the world for projects like these! I a
 I will be using most everything from [SciPy](https://www.scipy.org/)
 
 
-##Notes
+## Notes
 This is my first machine learning project and first decent sized python project so there might be some situations where best practices are not followed but I am learning and will adopt best practices as I learn them.
 ## Author
 Marcus Cantu

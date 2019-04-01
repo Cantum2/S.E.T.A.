@@ -1,4 +1,4 @@
-# StockMetaScore
+# Stock Elo Trading Algorithm
 This is going to be an attempt to create a machine learning algorithm to predict whether or not a stock is worth buying based on a "meta score"
 
 ### Installing

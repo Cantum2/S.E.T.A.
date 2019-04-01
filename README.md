@@ -6,8 +6,7 @@ This is going to be an attempt to create a machine learning algorithm to predict
 2. Use your command line of choice to navigate to the folder. I am using [cmder](http://cmder.net/)
 3. Once you are in your folder you dedicated to the project you are going to then use the command: ```git clone https://github.com/Cantum2/StockMetaScore.git```
 4. Now add the project folder in to your text editor of choice
-5. One it is added in run ```npm install```
-6. Great you should have everything installed!
+5. Great you should have everything installed!
 
 ### Some useful tools:
 Their are thousands of wonderful tools in the world for projects like these! I am using which are not required I just found them useful:

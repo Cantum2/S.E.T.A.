@@ -140,6 +140,13 @@ class Indicators:
         return RSI
 
     def get_elo(self, date):
+        """
+        :param date:
+            date in format m/d/yyyy
+        :return:
+            elo score
+        """
+
         RSI = Indicators.get_rsi(self, date)
         MacD_Hist = Indicators.get_macd_hist(self, date)
         Boll_Bot = Indicators.get_bollinger_bot(self, date)
